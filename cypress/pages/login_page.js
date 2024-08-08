@@ -2,7 +2,7 @@ class LoginPage {
     elements = {
         email_field: () => cy.get('#root > div > div > div > form > div:nth-child(1) > input'),
         password_field: () => cy.get('#root > div > div > div > form > div.Input_wrapper__NS9mM.LoginForm_input_wrapper__YMxsW > input'),
-        login_btn: () => y.get('#root > div > div > div > form > button')
+        login_btn: () => cy.get('#root > div > div > div > form > button')
     }
 
     go_to_login_page() {
