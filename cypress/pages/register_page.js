@@ -38,7 +38,8 @@ class RegisterPage {
     }
 
     fill_email_invalid(invalidEmails) {
-        invalidEmails.forEach((email) => {
+        for (const email of invalidEmails) {
+        // invalidEmails.forEach((email) => {
             cy.log(`Testing with email: ${email}`);
             this.elements.email_field().clear().type(email, { timeout: 300 });
             this.fill_password_valid();
@@ -46,13 +47,14 @@ class RegisterPage {
             this.expectCreateAccountButtonDisabled();
             cy.url().should('eq', urls.registration_page);
             cy.wait(300);
-        });
+            }
+        // });
     }
 
     click_password_field() {
         this.elements.password_field().click();
     }
-    
+
     // Использование рандомного валидного password
     fill_password_valid() {
         const randomPassword = generateRandomPassword();
