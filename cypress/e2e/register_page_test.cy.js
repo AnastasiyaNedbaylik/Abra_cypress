@@ -40,7 +40,7 @@ describe('register page', () => {
         cy.contains('Password is required').should('be.visible');
     })
 
-    it('should open temporary email and parse registration link', () => {
+    it('open temporary email and parse registration link', () => {
         cy.task('createTemporaryEmail').then((emailAddress) => {
           cy.log(`Temporary email address: ${emailAddress}`);
 
