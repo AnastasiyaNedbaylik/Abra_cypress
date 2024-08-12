@@ -5,5 +5,6 @@ export const register_page = {
     password_field: '#root > div > div > div > form > div.Input_wrapper__NS9mM.RegisterForm_input_wrapper__wcGoK > input',
     create_account_btn: '#root > div > div > div > form > button',
     success_message: '#root > div > div > div > div.CheckEmailPage_wrapper__ym3em > div.ContentMessage_header__Vwy9L',
-    email_confirmed_page_login_link: '#root > div > div > div > div.ConfirmEmailPage_wrapper__zcw9y > a'
+    email_confirmed_page_login_link: '#root > div > div > div > div.ConfirmEmailPage_wrapper__zcw9y > a',
+    invalid_email_validation_message: '#root > div > div > div > form > div:nth-child(2) > span'
   };
