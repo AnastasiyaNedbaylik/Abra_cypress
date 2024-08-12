@@ -71,7 +71,7 @@ describe('register page', () => {
         });
       });
 
-    it('register with an existing email and show an error', () => {
+    it('register with an existing email', () => {
         // Register a user and get the email
         registerUser().then((existingEmail) => {
 
