@@ -1,6 +1,7 @@
 import RegisterPage from '../pages/register_page';
 import { urls } from '../utilities/settings';
 import { invalidEmails, invalidPasswords } from '../utilities/data';
+import { registerUser } from '../utilities/register_page/registration';
 
 describe('register page', () => {
     beforeEach(() => {
@@ -62,7 +63,7 @@ describe('register page', () => {
               cy.visit(registrationLink);
     
               // Продолжить тестирование
-              cy.wait(5000); // Задержка для подтверждения загрузки страницы
+              cy.wait(1000); // Задержка для подтверждения загрузки страницы
               cy.contains('Email confirmed.').should('be.visible');
               cy.log('Test completed: Email confirmed.');
             });
@@ -70,4 +71,16 @@ describe('register page', () => {
         });
       });
 
-    })
+    it('register with an existing email and show an error', () => {
+        // Register a user and get the email
+        registerUser().then((existingEmail) => {
+
+        // Attempt to register again with the same email
+        RegisterPage.register_with_existing_email(existingEmail);
+
+        // assertions
+        cy.contains('Email is already registered').should('be.visible');
+        });
+    });
+
+})

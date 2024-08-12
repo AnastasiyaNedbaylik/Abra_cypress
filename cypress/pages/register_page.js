@@ -12,8 +12,9 @@ class RegisterPage {
         success_message: () => cy.get(register_page.success_message),
         email_confirmed_page_login_link: () => cy.get(register_page.email_confirmed_page_login_link),
         invalid_email_validation_message: () => cy.get(register_page.invalid_email_validation_message),
-        invalid_password_validation_message: () => cy.get(register_page.invalid_password_validation_message)
-    }
+        invalid_password_validation_message: () => cy.get(register_page.invalid_password_validation_message),
+        error_email_already_registred: () => cy.get(register_page.error_email_already_registred)
+     }
 
     open_register_page() {
         cy.visit(urls.registration_page);
@@ -39,6 +40,10 @@ class RegisterPage {
 
     fill_email_to_get_invite(email) {
         this.elements.email_field().clear().type(email);
+    }
+
+    fill_email(email) {
+        this.elements.email_field().type(email);
     }
 
     fill_email_invalid(invalidEmails) {
@@ -79,6 +84,10 @@ class RegisterPage {
         })
     }
 
+    fill_password(password) {
+        this.elements.password_field().type(password);
+    }
+
     click_create_account_btn() {
         this.elements.create_account_btn().click();
     }
@@ -86,6 +95,16 @@ class RegisterPage {
     expectCreateAccountButtonDisabled() {
         cy.get(this.elements.create_account_btn().should('be.disabled'));
     }
+
+    register_with_existing_email(existingEmail) {
+        this.open_register_page();
+        this.click_signup_supplier_btn();
+        cy.log(`Attempting to register with existing email: ${existingEmail}`);
+        this.elements.email_field().type(existingEmail);
+        this.fill_password(generateRandomPassword());
+        this.click_create_account_btn();
+        cy.contains('Email is already registered').should('be.visible');
+      }
 }
 
 module.exports = new RegisterPage();

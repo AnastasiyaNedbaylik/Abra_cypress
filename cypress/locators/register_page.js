@@ -7,5 +7,6 @@ export const register_page = {
     success_message: '#root > div > div > div > div.CheckEmailPage_wrapper__ym3em > div.ContentMessage_header__Vwy9L',
     email_confirmed_page_login_link: '#root > div > div > div > div.ConfirmEmailPage_wrapper__zcw9y > a',
     invalid_email_validation_message: '#root > div > div > div > form > div:nth-child(2) > span',
-    invalid_password_validation_message: '#root > div > div > div > form > div.Input_wrapper__NS9mM.RegisterForm_input_wrapper__wcGoK > span'
+    invalid_password_validation_message: '#root > div > div > div > form > div.Input_wrapper__NS9mM.RegisterForm_input_wrapper__wcGoK > span',
+    error_email_already_registred: 'body > div.NoticePopup_notice_container__MR\+Vh.NoticePopup_error__xDRD5 > p'
   };
