@@ -57,8 +57,6 @@ export function generateRandomPassword() {
     'LETTERS!#*+$',
     'Lettersand!#*+$',
     '12345678!#*+$',
-    //8 символов
-    'Letter1!',
       // Менее 8 символов
     'Pwd1!', 
     'H1e!+'

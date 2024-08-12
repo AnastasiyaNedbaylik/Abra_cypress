@@ -11,7 +11,8 @@ class RegisterPage {
         create_account_btn: () => cy.get(register_page.create_account_btn),
         success_message: () => cy.get(register_page.success_message),
         email_confirmed_page_login_link: () => cy.get(register_page.email_confirmed_page_login_link),
-        invalid_email_validation_message: () => cy.get(register_page.invalid_email_validation_message)
+        invalid_email_validation_message: () => cy.get(register_page.invalid_email_validation_message),
+        invalid_password_validation_message: () => cy.get(register_page.invalid_password_validation_message)
     }
 
     open_register_page() {
@@ -29,7 +30,7 @@ class RegisterPage {
     fill_email_valid() {
         const randomEmail = generateRandomEmail();
         cy.log('Generated email address:', randomEmail);
-        this.elements.email_field().type(randomEmail);
+        this.elements.email_field().clear().type(randomEmail);
     }
 
     fill_email_invalid(invalidEmails) {
@@ -49,6 +50,19 @@ class RegisterPage {
         const randomPassword = generateRandomPassword();
         cy.log('Generated password:', randomPassword);
         this.elements.password_field().clear().type(randomPassword);
+    }
+
+    fill_password_invalid(invalidPasswords) {
+        invalidPasswords.forEach((password) => {
+            this.fill_email_valid();
+            cy.log(`Testing with password: ${password}`)
+            this.elements.password_field().clear().type(password, { timeout: 300});
+            this.elements.email_field().click();
+            this.elements.invalid_password_validation_message().should('be.visible').and('have.text', 'Password must match the next requirements');
+            this.expectCreateAccountButtonDisabled();
+            cy.url().should('eq', urls.registration_page);
+            cy.wait(300);
+        })
     }
 
     click_create_account_btn() {

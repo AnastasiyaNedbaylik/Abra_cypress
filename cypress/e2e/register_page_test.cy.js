@@ -18,4 +18,11 @@ describe('register page', () => {
         RegisterPage.fill_email_invalid(invalidEmails);
         cy.log(`Test completed with email: ${invalidEmails}`);
     })
+
+    it('register with invalid password', () => {
+        RegisterPage.open_register_page();
+        RegisterPage.click_signup_supplier_btn();
+        RegisterPage.fill_password_invalid(invalidPasswords);
+        cy.log(`Test completed with email: ${invalidPasswords}`);
+    })
 })
