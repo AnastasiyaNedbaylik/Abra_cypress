@@ -1,12 +1,16 @@
+import { login_page } from '../locators/login_page';
+import { urls } from '../utilities/settings';
+
+
 class LoginPage {
     elements = {
-        email_field: () => cy.get('#root > div > div > div > form > div:nth-child(1) > input'),
-        password_field: () => cy.get('#root > div > div > div > form > div.Input_wrapper__NS9mM.LoginForm_input_wrapper__YMxsW > input'),
-        login_btn: () => cy.get('#root > div > div > div > form > button')
+        email_field: () => cy.get(login_page.email_field),
+        password_field: () => cy.get(login_page.password_field),
+        login_btn: () => cy.get(login_page.login_btn)
     }
 
     go_to_login_page() {
-        cy.visit('https://dev.abra-market.com/login');
+        cy.visit(urls.login_page);
     }
 
     fill_emai() {
