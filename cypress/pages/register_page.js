@@ -26,6 +26,10 @@ class RegisterPage {
         this.elements.signup_supplier_btn().click();
     }
 
+    click_email_field() {
+        this.elements.email_field().click();
+    }
+
     // Использование рандомного валидного email
     fill_email_valid() {
         const randomEmail = generateRandomEmail();
@@ -45,6 +49,10 @@ class RegisterPage {
         });
     }
 
+    click_password_field() {
+        this.elements.password_field().click();
+    }
+    
     // Использование рандомного валидного password
     fill_password_valid() {
         const randomPassword = generateRandomPassword();

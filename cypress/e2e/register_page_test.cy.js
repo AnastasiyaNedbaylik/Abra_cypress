@@ -25,4 +25,24 @@ describe('register page', () => {
         RegisterPage.fill_password_invalid(invalidPasswords);
         cy.log(`Test completed with email: ${invalidPasswords}`);
     })
+
+    it('register without email', () => {
+        RegisterPage.open_register_page();
+        RegisterPage.click_signup_supplier_btn();
+        RegisterPage.fill_password_valid();
+        RegisterPage.expectCreateAccountButtonDisabled();
+        // cy.contains('Email is required').should('be.visible');
+    })
+
+    it('register withoout password', () => {
+        RegisterPage.open_register_page();
+        RegisterPage.click_signup_supplier_btn();
+        RegisterPage.fill_email_valid();
+        RegisterPage.click_password_field();
+        RegisterPage.click_email_field();
+        RegisterPage.expectCreateAccountButtonDisabled();
+        cy.contains('Password is required').should('be.visible');
+    })
+
+
 })
