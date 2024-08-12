@@ -37,6 +37,10 @@ class RegisterPage {
         this.elements.email_field().clear().type(randomEmail);
     }
 
+    fill_email_to_get_invite(email) {
+        this.elements.email_field().clear().type(email);
+    }
+
     fill_email_invalid(invalidEmails) {
         for (const email of invalidEmails) {
         // invalidEmails.forEach((email) => {
