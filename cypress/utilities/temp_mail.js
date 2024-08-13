@@ -51,7 +51,7 @@ module.exports = (on, config) => {
       throw new Error('Email was not received in time');
     },
 
-    parseRegistrationLink(emailDetails) {
+    async parseRegistrationLink(emailDetails) {
       if (!emailDetails || !emailDetails.parts || emailDetails.parts.length === 0) {
         throw new Error('No email parts found');
       }

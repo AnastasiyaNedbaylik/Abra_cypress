@@ -105,6 +105,11 @@ class RegisterPage {
         this.click_create_account_btn();
         cy.contains('Email is already registered').should('be.visible');
       }
+
+    click_login_link_confirm_page() {
+        this.elements.email_confirmed_page_login_link().click();
+        this.elements.email_field().should('be.visible');
+    }
 }
 
 module.exports = new RegisterPage();

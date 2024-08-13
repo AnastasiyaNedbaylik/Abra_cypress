@@ -2,6 +2,7 @@ import RegisterPage from '../pages/register_page';
 import { urls } from '../utilities/settings';
 import { invalidEmails, invalidPasswords } from '../utilities/data';
 import { registerUser } from '../utilities/register_page/registration';
+import { register_and_login } from '../utilities/login_page/login_page';
 
 describe('register page', () => {
     beforeEach(() => {
@@ -56,6 +57,7 @@ describe('register page', () => {
           cy.task('waitForEmail', { emailAddress }).then((emailDetails) => {
             cy.log(`Email details received`);
     
+            // Найти ссылку на регистрацию в письме
             cy.task('parseRegistrationLink', emailDetails).then((registrationLink) => {
               cy.log(`Registration link: ${registrationLink}`);
     
@@ -83,4 +85,9 @@ describe('register page', () => {
         });
     });
 
+    it('register a new user and log in with the same credentials', () => {
+        register_and_login().then(({ email, password }) => {
+            cy.log(`Registered and logged in with email: ${email} and password: ${password}`);
+        });
+    });
 })
