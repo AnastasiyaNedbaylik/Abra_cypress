@@ -1,4 +1,4 @@
-// const { faker } = require('@faker-js/faker'); // нужно обновить до более новой версии
+const { faker } = require('@faker-js/faker'); // нужно обновить до более новой версии
 
 /**
  * Случайный адрес электронной почты.
@@ -66,26 +66,26 @@ export function generateRandomPassword() {
  * Генерирует случайное имя.
  * @returns {string} - Случайное имя.
  */
-// export function generateRandomFirstName() {
-//   return faker.name.firstName();
-// };
+export function generateRandomFirstName() {
+  return faker.name.firstName();
+};
 
 /**
 * Генерирует случайную фамилию.
 * @returns {string} - Случайная фамилия.
 */
-// export function generateRandomLastName() {
-//   return faker.name.lastName();
-// };
+export function generateRandomLastName() {
+  return faker.name.lastName();
+};
 
 /**
  * Генерирует случайный номер телефона без префикса.
  * @returns {string} - Случайный номер телефона без префикса.
  */
-// export function generateRandomPhoneNumber() {
-//   // Генерируем случайный номер телефона без префикса
-//   return faker.phone.number('9#########');
-// };
+export function generateRandomPhoneNumber() {
+  // Генерируем случайный номер телефона без префикса
+  return faker.phone.number('9#########');
+};
 
 /**
  * Генерирует случайное число из 9 цифр.
