@@ -12,7 +12,7 @@ export function register_and_login() {
         const password = generateRandomPassword();
         cy.log('Generated password:', password);
 
-        // Убедитесь, что emailAddress и password определены перед использованием
+        // Убедитьcя, что emailAddress и password определены перед использованием
         if (!emailAddress || !password) {
             throw new Error('Email address or password is undefined');
         }
@@ -59,4 +59,3 @@ export function register_and_login() {
         });
     });
 }
-

@@ -90,4 +90,6 @@ describe('register page', () => {
             cy.log(`Registered and logged in with email: ${email} and password: ${password}`);
         });
     });
+
+    
 })
