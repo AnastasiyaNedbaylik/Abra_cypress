@@ -74,7 +74,7 @@ class RegisterPage {
     fill_password_invalid(invalidPasswords) {
         invalidPasswords.forEach((password) => {
             this.fill_email_valid();
-            cy.log(`Testing with password: ${password}`)
+            cy.log(`Testing with password: ${password}`);
             this.elements.password_field().clear().type(password, { timeout: 300});
             this.elements.email_field().click();
             this.elements.invalid_password_validation_message().should('be.visible').and('have.text', 'Password must match the next requirements');
