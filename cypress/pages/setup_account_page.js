@@ -87,9 +87,13 @@ class SetupAccountPage {
         this.elements.select_business_drop_down({ timeout: 500 }).click();
 
         // Получаем все элементы дропдауна и выбираем случайный элемент
-        cy.get('.SelectItem_item__kFdkV').should('be.visible').then($options => {
-            const randomIndex = Math.floor(Math.random() * $options.length);
-            cy.wrap($options[randomIndex]).click();
+        cy.get('.SelectItem_item__kFdkV', { timeout: 300 }).should('be.visible').then($options => {
+            if ($options.length > 0) {
+                const randomIndex = Math.floor(Math.random() * $options.length);
+                cy.wrap($options[randomIndex]).click();
+            } else {
+                throw new Error('No dropdown items found');
+            }
         });
     }
 
