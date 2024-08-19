@@ -21,7 +21,7 @@ describe('set up account page', () => {
         SetupAccountPage.fill_last_name_field();
         SetupAccountPage.fill_phone_number_field();
         SetupAccountPage.click_continue_btn();
-        // SetupAccountPage.upload_profile_logo();
+        SetupAccountPage.upload_profile_logo();
         SetupAccountPage.fill_company_or_store_name_field();
         SetupAccountPage.select_business();
         SetupAccountPage.check_manufacturer_checkbox();

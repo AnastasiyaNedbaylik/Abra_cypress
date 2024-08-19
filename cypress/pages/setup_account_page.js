@@ -71,8 +71,8 @@ class SetupAccountPage {
         // Загрузка изображения в поле
         // Для работы с методом attachFile, нужно установить и подключить плагин cypress-file-upload. и подключить его в cypress/support/commands.js: import 'cypress-file-upload';
         // attachFile – это метод из плагина cypress-file-upload. 
-        // cy.get(setup_account_page.profile_logo).should('be.visible').attachFile(imagePath);
-        // cy.get(setup_account_page.profile_logo).attachFile(imagePath);
+        cy.get(setup_account_page.profile_logo).should('be.visible').attachFile(imagePath);
+        cy.get(setup_account_page.profile_logo).attachFile(imagePath);
         cy.get(setup_account_page.profile_logo).invoke('show').attachFile(imagePath);
     }
 
